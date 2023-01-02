@@ -17,6 +17,7 @@ gem 'dotenv-rails'
 gem 'rest-client', '~> 2.1'
 gem 'json', '~> 2.6', '>= 2.6.3'
 gem 'view_component', '~> 2.80'
+gem 'pg', '~> 1.4', '>= 1.4.5'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
@@ -24,11 +25,6 @@ end
 
 group :development do
   gem "web-console"
-  gem "sqlite3", "~> 1.4"
-end
-
-group :production do
-  gem 'pg', '~> 1.4', '>= 1.4.5'
 end
 
 group :test do

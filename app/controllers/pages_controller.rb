@@ -1,8 +1,11 @@
 class PagesController < ApplicationController
   def home
     @recent = Search.all.last(7).reverse
-
-    response = RestClient.get('https://api.giphy.com/v1/gifs/translate?api_key=' + ENV["KEY"] + '&s=' + Search.last.query)
+    if Search.last
+      response = RestClient.get('https://api.giphy.com/v1/gifs/translate?api_key=' + ENV["KEY"] + '&s=' + Search.last.query)
+    else
+      response = RestClient.get('https://api.giphy.com/v1/gifs/translate?api_key=' + ENV["KEY"] + '&s=waiting')
+    end
     json = JSON.parse(response)
     @url = json['data']['images']['downsized_medium']['url']
   end
