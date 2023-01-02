@@ -1,41 +1,23 @@
 <div class="flex flex-col">
 
     <div class="w-auto border-2 border-purple-500 p-4" >Header</div>
-
     <%# Return home %>
-    <div class=""><%= link_to "Return to home", root_path%> </div>
+    <div class=""> <%= link_to(pages_download_path) do %>  <i class="fa-solid fa-user"></i> <% end %> <%= link_to "Return to home", root_path %> </div>
 
     <%# repeating content %>
-    <div class="w-auto p-4 flex justify-center gap-4">
-        <div class="flex flex-col gap-2 w-1/2"> 
-            <div class="flex gap-2 justify-end">
-                <div class="w-11/12 border-2 border-green-500"> Date number </div>
-                <div class="w-1/12 border-2 border-green-600"> <%= link_to "HOHO", pages_download_path %></div>
+    <% @queries.each do |day, queries| %>
+
+        <div class="w-auto p-4 flex justify-center gap-4">
+            <div class="flex flex-col gap-2 w-1/2"> 
+                <div class="flex gap-2 justify-end">
+                    <div class="w-11/12 border-2 border-green-500"> <%= queries.first.created_at.strftime("%B %e, %Y") %> </div>
+                    <div class="w-1/12 border-2 border-green-600 text-center"> <%= link_to(pages_download_path) do %>  <i class="fa-solid fa-user"></i> <% end %> </div>
+                </div>
+                <% queries.each do |q| %>
+                    <div class="w-auto border-2 border-green-300"><%= q.created_at.strftime("%l:%M %p %Z")%>: <%= q.query %> </div>
+                <% end %>
             </div>
-            <div class="w-auto border-2 border-green-300" >history</div>
         </div>
-    </div>
 
-
-    <div class="w-auto p-4 flex justify-center gap-4">
-        <div class="flex flex-col gap-2 w-1/2"> 
-            <div class="flex gap-2 justify-end">
-                <div class="w-11/12 border-2 border-green-500"> Date number </div>
-                <div class="w-1/12 border-2 border-green-600"> <%= link_to "HOHO", pages_download_path %></div>
-            </div>
-            <div class="w-auto border-2 border-green-300" >history</div>
-        </div>
-    </div>
-
-
-    <div class="w-auto p-4 flex justify-center gap-4">
-        <div class="flex flex-col gap-2 w-1/2"> 
-            <div class="flex gap-2 justify-end">
-                <div class="w-11/12 border-2 border-green-500"> Date number </div>
-                <div class="w-1/12 border-2 border-green-600"> <%= link_to "HOHO", pages_download_path %></div>
-            </div>
-            <div class="w-auto border-2 border-green-300" >history</div>
-        </div>
-    </div>
-
+    <% end %>
 </div>

@@ -8,5 +8,6 @@ class PagesController < ApplicationController
   end
 
   def download
+    @queries = Search.all.reverse.group_by{|x| x.created_at.strftime("%Y-%m-%d")} 
   end
 end
