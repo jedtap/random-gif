@@ -1,25 +1,40 @@
 <div class="flex flex-col">
 
-    <div class="w-auto border-2 border-purple-500 p-4" >Header</div>
+    <%= render(HeaderComponent.new("Download past searches by date")) %>
+
     <%# Return home %>
-    <div class=""> <%= link_to(pages_download_path) do %>  <i class="fa-solid fa-user"></i> <% end %> <%= link_to "Return to home", root_path %> </div>
+    <div class="p-4" style="margin-top: -20px;">
+        <%= link_to(root_path) do %>
+            <i class="fa-solid fa-house"></i>
+            <span> Return to home page </span>
+        <% end %>
+    </div>
 
-    <%# repeating content %>
+    <%# Repeating content %>
     <% @queries.each do |day, queries| %>
-
         <div class="w-auto p-4 flex justify-center gap-4">
             <div class="flex flex-col gap-2 w-1/2"> 
-                <div class="flex gap-2 justify-end">
-                    <div class="w-11/12 border-2 border-green-500"> <%= queries.first.created_at.strftime("%B %e, %Y") %> </div>
 
-                    <div class="w-1/12 border-2 border-green-600 text-center"> 
-                        <%= link_to(pages_downloadDay_path(day: day)) do %> <i class="fa-solid fa-user"></i> <% end %>
+                <%# Day sub-headers %>
+                <div class="flex gap-2 justify-end border-2 border-gray-400 px-1 py-0.5 rounded-md">
+
+                    <div class="w-11/12"> <%= queries.first.created_at.strftime("%B %e, %Y") %> </div>
+
+                    <div class="w-1/12 text-center"> 
+                        <%= link_to(pages_downloadDay_path(day: day)) do %>
+                            <i class="fa-solid fa-circle-down"></i>
+                        <% end %>
                     </div>
-
                 </div>
-                <% queries.each do |q| %>
-                    <div class="w-auto border-2 border-green-300"><%= q.created_at.strftime("%l:%M %p %Z")%>: <%= q.query %> </div>
-                <% end %>
+
+                <%# List of queries %>
+                <div class="w-full flex flex-wrap gap-2 ml-4">
+                    <% queries.each do |q| %>
+                        <div class="w-5/12" style="margin-bottom: -10px;">
+                            <%= q.created_at.strftime("%l:%M %p %Z")%>: <%= q.query %>
+                        </div>
+                    <% end %>
+                </div>
             </div>
         </div>
 

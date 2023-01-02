@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+a {
+    color: rgb(22, 22, 132);
+    text-decoration: none;
+}
+  
+a:hover {
+    color: rgba(22, 22, 132, 0.7);
+}
