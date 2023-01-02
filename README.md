@@ -1,24 +1,16 @@
-# README
+# Random GIF search!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Hi there! This ond-day project combines my learnings from different technologies which includes:
 
-Things you may want to cover:
+- Rails 7
+- Hotwire
+- Turbo
+- Stimulus JS
+- Tailwind CSS
+- View Components
+- FontAwesome
+- REST API
 
-* Ruby version
+Check out the recorded demo! 👉 
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Want to request a deployed version? Send me an email and I am happy to get it up in RailwayApp
