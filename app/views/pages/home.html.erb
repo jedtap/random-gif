@@ -21,8 +21,7 @@
             </div>
 
             <%# History box %>
-            <div class="w-auto border-2 border-green-300" style="height: auto;">
-                
+            <div class="w-auto border-2 border-green-300" id="history" style="height: auto;">
                 <% @recent.each do |q|  %>
                     <div id="<%= dom_id q %>">
                         <%= q.created_at.to_s(:short) %>: <%= q.query %>
