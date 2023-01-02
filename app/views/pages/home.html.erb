@@ -30,11 +30,11 @@
                 </div>
             </div>
 
-            <%# History box %>
+            <%# Recent searches %>
             <div class="w-auto" style="height: auto;">
                 <p class="mb-2">Recent searches: </p>
                 <% @recent.each do |q|  %>
-                    <div id="<%= dom_id q %>" class="mb-1">
+                    <div id="<%= dom_id q %>" class="mb-1 mx-4">
                         <%= q.created_at.to_s(:short) %>: <%= q.query %>
                     </div>
                 <% end %>

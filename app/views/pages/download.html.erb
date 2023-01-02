@@ -15,15 +15,18 @@
         <div class="w-auto p-4 flex justify-center gap-4">
             <div class="flex flex-col gap-2 w-1/2"> 
 
-                <%# Day sub-headers %>
                 <div class="flex gap-2 justify-end border-2 border-gray-400 px-1 py-0.5 rounded-md">
-
+                    
+                    <%# Day sub-headers %>
                     <div class="w-11/12"> <%= queries.first.created_at.strftime("%B %e, %Y") %> </div>
 
-                    <div class="w-1/12 text-center"> 
-                        <%= link_to(pages_downloadDay_path(day: day)) do %>
-                            <i class="fa-solid fa-circle-down"></i>
-                        <% end %>
+                    <%# Download button %>
+                    <div class="w-1/12 text-center" data-controller="notice">
+                        <div data-action="click->notice#show"> 
+                            <%= link_to(pages_downloadDay_path(day: day)) do %>
+                                <i class="fa-solid fa-circle-down"></i>
+                            <% end %>
+                        </div>
                     </div>
                 </div>
 
