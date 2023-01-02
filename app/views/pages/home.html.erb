@@ -8,10 +8,27 @@
         <%# col 1 %>
         <div class="flex flex-col gap-2 w-1/2"> 
             <div class="flex gap-2 justify-end">
-                <div class="w-11/12 border-2 border-green-500"> actual search bar </div>
-                <div class="w-1/12 border-2 border-green-600"> <%= link_to "HOHO", pages_download_path %></div>
+                <div class="w-11/12 border-2 border-green-500"> 
+                    <%# Search field %>
+                    <%= form_with(model: Search.new ) do |form| %> 
+                        <%= form.text_field :query, placeholder: "Search a GIF!" %>
+                        <%= form.submit type: :hidden %>
+                    <% end %>
+                </div>
+                
+                <%# Go to download's path %>
+                <div class="w-1/12 border-2 border-green-600"> <%= link_to(pages_download_path) do %>  <i class="fa-solid fa-user"></i> <% end %></div>
             </div>
-            <div class="w-auto border-2 border-green-300" style="height: 470px;">history</div>
+
+            <%# History box %>
+            <div class="w-auto border-2 border-green-300" style="height: 470px;">
+                
+                <% @recent.each do |q|  %>
+                    <div id="<%= dom_id q %>">
+                        <%= q.created_at.to_s(:short) %>: <%= q.query %>
+                    </div>
+                <% end %>
+            </div>
         </div>
 
         <div class="border-2 border-red-300 w-1/2" style="height: 500px;">gify field</div>
