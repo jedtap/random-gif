@@ -23,3 +23,6 @@ test:
 production:
   <<: *default
   url: <%= ENV["DATABASE_URL"] %>
+  database: random_gif_production
+  username: random_gif
+  password: <%= ENV["RANDOM_GIF_DATABASE_PASSWORD"] %>
