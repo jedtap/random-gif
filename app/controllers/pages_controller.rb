@@ -10,4 +10,9 @@ class PagesController < ApplicationController
   def download
     @queries = Search.all.reverse.group_by{|x| x.created_at.strftime("%Y-%m-%d")} 
   end
+
+  def downloadDay
+    @queries = Search.all.group_by{|x| x.created_at.strftime("%Y-%m-%d")} 
+    render json: @queries[params[:day]]
+  end
 end

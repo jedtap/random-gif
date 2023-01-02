@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   get 'pages/home'
   get 'pages/download'
   root 'pages#home'
+  get 'pages/downloadDay'
 end

@@ -11,7 +11,11 @@
             <div class="flex flex-col gap-2 w-1/2"> 
                 <div class="flex gap-2 justify-end">
                     <div class="w-11/12 border-2 border-green-500"> <%= queries.first.created_at.strftime("%B %e, %Y") %> </div>
-                    <div class="w-1/12 border-2 border-green-600 text-center"> <%= link_to(pages_download_path) do %>  <i class="fa-solid fa-user"></i> <% end %> </div>
+
+                    <div class="w-1/12 border-2 border-green-600 text-center"> 
+                        <%= link_to(pages_downloadDay_path(day: day)) do %> <i class="fa-solid fa-user"></i> <% end %>
+                    </div>
+
                 </div>
                 <% queries.each do |q| %>
                     <div class="w-auto border-2 border-green-300"><%= q.created_at.strftime("%l:%M %p %Z")%>: <%= q.query %> </div>
