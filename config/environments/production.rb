@@ -2,7 +2,7 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
 
-  config.hosts << "rails-production-e95a.up.railway.app"
+  config.hosts << "rails-production-b77f.up.railway.app"
   
   # Settings specified here will take precedence over those in config/application.rb.
   
