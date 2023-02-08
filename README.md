@@ -1,6 +1,6 @@
 # Random GIF search!
 
-Hi there! This ond-day project combines my learnings from different technologies which includes:
+Hi there! During my job search, a potential employer gave me a list of technologies for me to practice before their technical exam. This one-day project combines my learnings from different technologies which includes:
 
 - Rails 7
 - Hotwire
@@ -11,6 +11,4 @@ Hi there! This ond-day project combines my learnings from different technologies
 - FontAwesome
 - REST API
 
-Check out the recorded demo! 👉 https://youtu.be/Av99SONN_k8
-
-Want to request a deployed version? Send me an email and I am happy to get it up in RailwayApp
+Check out the live application here! 👉 https://rails-production-b77f.up.railway.app/
